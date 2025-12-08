@@ -77,7 +77,7 @@ const rules = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
-          <div v-for="(step, index) in steps" :key="index" class="border border-white/10 rounded-2xl p-8 hover:border-green-500/30 transition relative overflow-hidden group">
+          <div v-for="(step, index) in steps" :key="index" class="border border-white/10 rounded-2xl p-8 hover:border-green-500/30 transition relative overflow-hidden group bg-white/5">
             
             <div class="absolute top-6 right-6 text-6xl font-bold text-white/5">{{ step.number }}</div>
 
@@ -99,7 +99,7 @@ const rules = [
       <div class="max-w-6xl mx-auto">
         <h2 class="text-4xl font-bold text-center text-white mb-12">Game Rules</h2>
 
-        <div class="border border-white/10 rounded-2xl p-8">
+        <div class="border border-white/10 rounded-2xl p-8 bg-white/5">
           <div class="space-y-4">
             <div v-for="(rule, index) in rules" :key="index" class="flex gap-4 items-start">
               

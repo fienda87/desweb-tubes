@@ -9,7 +9,7 @@ const footerLinks = {
   product: [
     { name: 'howtoplay', path: '/howtoplay' },
     { name: 'Tokenomics', path: '/tokenomics' },
-    { name: 'Referral', path: '/referral' },
+    { name: 'Referral', path: '/refferal' },
     { name: 'Leaderboard', path: '/leaderboard' },
   ],
   legal: [
