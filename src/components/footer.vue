@@ -9,7 +9,6 @@ const footerLinks = {
   product: [
     { name: 'howtoplay', path: '/howtoplay' },
     { name: 'Tokenomics', path: '/tokenomics' },
-    { name: 'Referral', path: '/refferal' },
     { name: 'Leaderboard', path: '/leaderboard' },
   ],
   legal: [
@@ -39,7 +38,6 @@ const socialLinks = [
   },
   { 
     name: 'GitHub', 
-    href: 'https://github.com/metablackjack',
     icon: Github,
     color: 'hover:text-white'
   },
