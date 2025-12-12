@@ -52,6 +52,13 @@ const mobileOpen = ref(false)
             'transition',
             route.path === '/leaderboard' ? 'text-[#05DF72] font-bold' : 'text-white/80 hover:text-white']"
         >Leaderboard</router-link>
+
+         <router-link
+          to="/cots"
+          :class="[
+            'transition',
+            route.path === '/cots' ? 'text-[#05DF72] font-bold' : 'text-white/80 hover:text-white']"
+        >About Me</router-link>
       </div>
 
       <!-- mobile -->
@@ -114,6 +121,14 @@ const mobileOpen = ref(false)
             :class="route.path === '/refferal' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
             @click="mobileOpen = false"
           >Refferal</router-link>
+</li>
+        <li>
+          <router-link
+            to="/cots"
+            class="block px-6 py-4 text-base font-semibold text-center transition"
+            :class="route.path === '/refferal' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
+            @click="mobileOpen = false"
+          >About Me </router-link>
 </li>
         <li>
           <div class="px-6 py-4 flex justify-center bg-black/90">

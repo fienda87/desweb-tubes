@@ -1,0 +1,414 @@
+<script setup>
+import Navbar from '../components/navbar.vue'
+import Footer from '../components/footer.vue'
+import { 
+  Code, 
+  Palette, 
+  Database, 
+  Smartphone, 
+  Mail, 
+  MapPin,
+  Github,
+  Linkedin
+} from 'lucide-vue-next'
+
+// Data pribadi
+const profile = {
+  name: 'Your Name',
+  role: 'Full Stack Developer',
+  location: 'Jakarta, Indonesia',
+  email: 'your.email@example.com',
+  bio: 'Passionate developer with expertise in modern web technologies. Love building scalable and user-friendly applications.',
+  photo: '/path/to/your/photo.jpg' // Ganti dengan path foto Anda
+}
+
+// Skill set
+const skills = [
+  {
+    icon: Code,
+    category: 'Frontend',
+    items: ['Vue.js', 'React', 'Tailwind CSS', 'JavaScript/TypeScript']
+  },
+  {
+    icon: Database,
+    category: 'Backend',
+    items: ['Node.js', 'Express', 'PostgreSQL', 'MongoDB']
+  },
+  {
+    icon: Smartphone,
+    category: 'Mobile',
+    items: ['React Native', 'Flutter', 'Progressive Web Apps']
+  },
+  {
+    icon: Palette,
+    category: 'Design',
+    items: ['Figma', 'UI/UX Design', 'Responsive Design', 'Prototyping']
+  }
+]
+
+// Social links
+const socials = [
+  { 
+    icon: Github, 
+    label: 'GitHub', 
+    url: 'https://github.com/yourusername' 
+  },
+  { 
+    icon: Linkedin, 
+    label: 'LinkedIn', 
+    url: 'https://linkedin.com/in/yourusername' 
+  }
+]
+</script>
+
+<template>
+  <div class="pt-20 bg-black min-h-screen text-white">
+    <!-- Navbar -->
+    <Navbar />
+
+    <!-- Hero Section -->
+    <section class="relative py-20 overflow-hidden">
+      <!-- Background gradient -->
+      <div class="absolute inset-0 bg-linear-to-b from-black via-[#05DF72]/5 to-black"></div>
+      <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(5,223,114,0.06)_1px,transparent_1px)] bg-[size:3rem_3rem] [mask-image:radial-gradient(ellipse_80%_50%_at_50%_50%,#000_60%,transparent_100%)]"></div>
+      
+      <div class="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex flex-col md:flex-row items-center gap-8 md:gap-12">
+          
+          <!-- Photo - Hidden on mobile -->
+          <div class="hidden md:block shrink-0">
+            <div class="relative group">
+              <div class="absolute inset-0 bg-linear-to-b from-[#05DF72] to-[#04B25B] rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity"></div>
+              <img 
+                :src="profile.photo" 
+                :alt="profile.name"
+                class="relative w-48 h-48 rounded-2xl object-cover border-2 border-[#05DF72]/20"
+              />
+            </div>
+          </div>
+
+          <!-- Info - Centered on mobile -->
+          <div class="flex-1 text-center md:text-left">
+            <!-- Badge -->
+            <div class="inline-flex items-center gap-2 bg-[#05DF72]/10 border border-[#05DF72]/20 rounded-full px-4 py-2 mb-6">
+              <span class="w-2 h-2 bg-[#05DF72] rounded-full animate-pulse"></span>
+              <span class="text-sm text-[#05DF72] font-medium">Available for Work</span>
+            </div>
+
+            <!-- Name & Role -->
+            <h1 class="text-4xl md:text-5xl font-bold text-white mb-3">
+              {{ profile.name }}
+            </h1>
+            <p class="text-xl md:text-2xl text-[#05DF72] mb-4">
+              {{ profile.role }}
+            </p>
+
+            <!-- Location & Email -->
+            <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4 mb-6 text-gray-400">
+              <div class="flex items-center gap-2">
+                <MapPin class="w-4 h-4" />
+                <span class="text-sm">{{ profile.location }}</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <Mail class="w-4 h-4" />
+                <a :href="`mailto:${profile.email}`" class="text-sm hover:text-[#05DF72] transition">
+                  {{ profile.email }}
+                </a>
+              </div>
+            </div>
+
+            <!-- Bio -->
+            <p class="text-gray-300 text-base leading-relaxed mb-6 max-w-2xl mx-auto md:mx-0">
+              {{ profile.bio }}
+            </p>
+
+            <!-- Social Links -->
+            <div class="flex items-center justify-center md:justify-start gap-3">
+              <a
+                v-for="social in socials"
+                :key="social.label"
+                :href="social.url"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="p-3 bg-white/5 border border-white/10 rounded-xl hover:border-[#05DF72]/30 hover:bg-[#05DF72]/10 transition group"
+                :aria-label="social.label"
+              >
+                <component :is="social.icon" class="w-5 h-5 text-gray-400 group-hover:text-[#05DF72] transition" />
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="py-20">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">
+          Skills & Expertise
+        </h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            v-for="(skill, index) in skills"
+            :key="index"
+            class="bg-white/5 border border-white/10 rounded-2xl p-6 hover:border-[#05DF72]/30 transition group"
+          >
+            <!-- Icon & Category -->
+            <div class="flex items-center gap-3 mb-4">
+              <div class="p-3 bg-linear-to-b from-[#05DF72] to-[#04B25B] rounded-xl">
+                <component :is="skill.icon" class="w-5 h-5 text-black" />
+              </div>
+              <h3 class="text-xl font-bold text-white">
+                {{ skill.category }}
+              </h3>
+            </div>
+
+            <!-- Skills list -->
+            <div class="flex flex-wrap gap-2">
+              <span
+                v-for="item in skill.items"
+                :key="item"
+                class="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-sm text-gray-300 group-hover:border-[#05DF72]/20 transition"
+              >
+                {{ item }}
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <Footer />
+  </div>
+</template>
+
+
+
+router/index.js
+
+import { createRouter, createWebHashHistory } from "vue-router";
+import Homepage from "@/pages/homepage.vue";
+import Howtoplay from "@/pages/howtoplay.vue";
+import Tokenomics from "@/pages/tokenomics.vue";
+import Refferal from "@/pages/refferal.vue";
+import Leaderboard from "@/pages/leaderboard.vue";
+import Aboutme from "@/pages/aboutme.vue"; // ✅ Tambah import
+
+const routes = [
+  { path: "/", name: "homepage", component: Homepage },
+  { path: "/howtoplay", name: "howtoplay", component: Howtoplay },
+  { path: "/tokenomics", name: "tokenomics", component: Tokenomics },
+  { path: "/refferal", name: "refferal", component: Refferal },
+  { path: "/leaderboard", name: "leaderboard", component: Leaderboard },
+  { path: "/about", name: "aboutme", component: Aboutme }, // ✅ Tambah route
+];
+
+const router = createRouter({
+  history: createWebHashHistory(),
+  routes,
+  scrollBehavior(to, from, savedPosition) {
+    // ✅ Scroll to top saat pindah halaman
+    if (savedPosition) {
+      return savedPosition;
+    } else {
+      return { top: 0, behavior: 'smooth' };
+    }
+  },
+});
+
+export default router;
+
+
+navarbar// src/router/index.js
+
+
+<script setup>
+import { ref } from 'vue'
+import { useRoute } from 'vue-router'
+import { Menu, X } from 'lucide-vue-next'
+import connectwalletbutton from './connectwalletbutton.vue'
+
+const mobileOpen = ref(false)
+const route = useRoute()
+
+const isActive = (path) => route.path === path
+</script>
+
+<template>
+  <nav class="fixed top-0 left-0 w-full z-50 bg-black">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 flex items-center h-16">
+      
+      <!-- Logo -->
+      <router-link 
+        to="/" 
+        class="min-w-[96px] sm:min-w-[120px] mr-4 sm:mr-8"
+      >
+        <img 
+          src="../assets/logo.png" 
+          alt="MetaBlackJack" 
+          class="h-8 w-auto hover:opacity-80 transition"
+        />
+      </router-link>
+
+      <!-- Desktop Links -->
+      <div class="hidden md:flex grow justify-center gap-8 items-center">
+        <router-link 
+          to="/" 
+          :class="[
+            'transition font-medium',
+            isActive('/') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          Home
+        </router-link>
+
+        <router-link 
+          to="/howtoplay" 
+          :class="[
+            'transition font-medium',
+            isActive('/howtoplay') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          How to Play
+        </router-link>
+
+        <router-link 
+          to="/tokenomics" 
+          :class="[
+            'transition font-medium',
+            isActive('/tokenomics') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          Tokenomics
+        </router-link>
+
+        <router-link 
+          to="/leaderboard" 
+          :class="[
+            'transition font-medium',
+            isActive('/leaderboard') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          Leaderboard
+        </router-link>
+
+        <router-link 
+          to="/refferal" 
+          :class="[
+            'transition font-medium',
+            isActive('/refferal') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          Refferal
+        </router-link>
+
+        <!-- ✅ Tambah link About -->
+        <router-link 
+          to="/about" 
+          :class="[
+            'transition font-medium',
+            isActive('/about') ? 'text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          About
+        </router-link>
+      </div>
+
+      <!-- Connect Wallet Button (Desktop) -->
+      <div class="hidden md:block ml-auto">
+        <connectwalletbutton />
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button 
+        @click="mobileOpen = !mobileOpen"
+        class="md:hidden ml-auto p-2 text-white hover:text-[#05DF72] transition"
+      >
+        <Menu v-if="!mobileOpen" class="w-6 h-6" />
+        <X v-else class="w-6 h-6" />
+      </button>
+    </div>
+
+    <!-- Mobile Dropdown -->
+    <div 
+      v-if="mobileOpen" 
+      class="md:hidden bg-black border-t border-white/10"
+    >
+      <div class="px-4 py-4 space-y-1">
+        <router-link 
+          to="/" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:bg-white/5'
+          ]"
+        >
+          Home
+        </router-link>
+
+        <router-link 
+          to="/howtoplay" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/howtoplay') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:bg-white/5'
+          ]"
+        >
+          How to Play
+        </router-link>
+
+        <router-link 
+          to="/tokenomics" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/tokenomics') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:bg-white/5'
+          ]"
+        >
+          Tokenomics
+        </router-link>
+
+        <router-link 
+          to="/leaderboard" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/leaderboard') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:text-[#05DF72]'
+          ]"
+        >
+          Leaderboard
+        </router-link>
+
+        <router-link 
+          to="/refferal" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/refferal') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:bg-white/5'
+          ]"
+        >
+          Refferal
+        </router-link>
+
+        <!-- ✅ Tambah link About untuk mobile -->
+        <router-link 
+          to="/about" 
+          @click="mobileOpen = false"
+          :class="[
+            'block px-4 py-3 rounded-lg transition font-medium',
+            isActive('/about') ? 'bg-[#05DF72]/10 text-[#05DF72]' : 'text-white hover:bg-white/5'
+          ]"
+        >
+          About
+        </router-link>
+
+        <!-- Connect Wallet Button (Mobile) -->
+        <div class="pt-4">
+          <connectwalletbutton />
+        </div>
+      </div>
+    </div>
+  </nav>
+</template>a

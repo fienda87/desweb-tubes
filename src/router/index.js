@@ -33,6 +33,11 @@ const routes = [
         name: "refferal",
         component: Refferal,
     },
+    {
+        path: "/cots",
+        name: "cots",
+        component: AboutMe,
+    },
 ];
 const router = createRouter({
     history: createWebHashHistory(),
