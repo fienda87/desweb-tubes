@@ -77,8 +77,8 @@ const mobileOpen = ref(false)
       </div>
     </div>
 
-    <div v-if="mobileOpen" class="md:hidden absolute top-16 left-0 w-full z-50">
-      < class="bg-black/95 border-t border-white/10 rounded-b-2xl shadow-2xl divide-y divide-white/10">
+    <div v-if="mobileOpen" class="md:hidden absolute top-16 left-0 w-full z-50 bg-black border-t border-white/10">
+      <ul class="divide-y divide-white/10">
         <li>
           <router-link
             to="/"
@@ -115,7 +115,6 @@ const mobileOpen = ref(false)
           >Leaderboard</router-link>
         </li>
 
-       
         <li>
           <router-link
             to="/refferal"
@@ -124,22 +123,22 @@ const mobileOpen = ref(false)
             @click="mobileOpen = false"
           >Refferal</router-link>
         </li>
-<li>
-  <router-link
-          to="/cots"
-           class="block px-6 py-4 text-base font-semibold text-center transition"
-            :class="route.path === '/refferal' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
+
+        <li>
+          <router-link
+            to="/cots"
+            class="block px-6 py-4 text-base font-semibold text-center transition"
+            :class="route.path === '/cots' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
             @click="mobileOpen = false"
-        >About me</router-link>
-        
-</li>
+          >About me</router-link>
+        </li>
         
         <li>
-          <div class="px-6 py-4 flex justify-center bg-black/90">
+          <div class="px-6 py-4 flex justify-center">
             <connectwalletbutton />
           </div>
         </li>
-      
+      </ul>
     </div>
   </nav>
 </template>
