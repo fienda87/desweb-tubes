@@ -28,9 +28,11 @@ const prevSlide = () => { currentSlide.value = currentSlide.value === 1 ? images
   >
     <div class="max-w-6xl mx-auto px-6">
     
-      <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2 mb-8 mx-auto">
+      <div class="flex justify-center mb-8">
+  <div class="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 rounded-full px-4 py-2">
         <span class="w-2 h-2 bg-green-500 rounded-full"></span>
         <span class="text-green-500 text-sm font-medium">Live Gameplay</span>
+      </div>
       </div>
 
   

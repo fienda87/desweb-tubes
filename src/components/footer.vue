@@ -10,6 +10,7 @@ const footerLinks = {
     { name: 'howtoplay', path: '/howtoplay' },
     { name: 'Tokenomics', path: '/tokenomics' },
     { name: 'Leaderboard', path: '/leaderboard' },
+     { name: 'cots', path: '/cots' },
   ],
   legal: [
     { name: 'Terms of Service', href: '#' },

@@ -53,12 +53,14 @@ const mobileOpen = ref(false)
             route.path === '/leaderboard' ? 'text-[#05DF72] font-bold' : 'text-white/80 hover:text-white']"
         >Leaderboard</router-link>
 
-         <router-link
+        <router-link
           to="/cots"
           :class="[
             'transition',
             route.path === '/cots' ? 'text-[#05DF72] font-bold' : 'text-white/80 hover:text-white']"
-        >About Me</router-link>
+        >AboutMe</router-link>
+
+        
       </div>
 
       <!-- mobile -->
@@ -76,7 +78,7 @@ const mobileOpen = ref(false)
     </div>
 
     <div v-if="mobileOpen" class="md:hidden absolute top-16 left-0 w-full z-50">
-      <ul class="bg-black/95 border-t border-white/10 rounded-b-2xl shadow-2xl divide-y divide-white/10">
+      < class="bg-black/95 border-t border-white/10 rounded-b-2xl shadow-2xl divide-y divide-white/10">
         <li>
           <router-link
             to="/"
@@ -121,21 +123,23 @@ const mobileOpen = ref(false)
             :class="route.path === '/refferal' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
             @click="mobileOpen = false"
           >Refferal</router-link>
-</li>
-        <li>
-          <router-link
-            to="/cots"
-            class="block px-6 py-4 text-base font-semibold text-center transition"
+        </li>
+<li>
+  <router-link
+          to="/cots"
+           class="block px-6 py-4 text-base font-semibold text-center transition"
             :class="route.path === '/refferal' ? 'text-[#05DF72] bg-white/5' : 'text-white/80 hover:bg-white/10'"
             @click="mobileOpen = false"
-          >About Me </router-link>
+        >About me</router-link>
+        
 </li>
+        
         <li>
           <div class="px-6 py-4 flex justify-center bg-black/90">
             <connectwalletbutton />
           </div>
         </li>
-      </ul>
+      
     </div>
   </nav>
 </template>

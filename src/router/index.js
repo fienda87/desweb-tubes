@@ -5,6 +5,7 @@ import HowToPlay from "@/pages/howtoplay.vue";
 import Tokenomics from "@/pages/tokenomics.vue";
 import Leaderboard from "@/pages/leaderboard.vue";
 import Refferal from "@/pages/refferal.vue";
+import Aboutme from "@/pages/cots.vue";
 
 const routes = [
 
@@ -33,11 +34,11 @@ const routes = [
         name: "refferal",
         component: Refferal,
     },
-    {
-        path: "/cots",
-        name: "cots",
-        component: AboutMe,
+    {   path: "/cots", 
+        name: "cots", 
+        component: Aboutme,
     },
+    
 ];
 const router = createRouter({
     history: createWebHashHistory(),
