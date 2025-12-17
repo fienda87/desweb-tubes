@@ -1,16 +1,13 @@
 <script setup>
 
 
-import { ArrowDownToLine, Play, CheckCircle } from 'lucide-vue-next';
+import { ArrowDownToLine, CheckCircle } from 'lucide-vue-next';
 
 import { ref } from 'vue'
 import Claimgbc from '../claimgbc.vue'
 
 
 const showClaimPopup = ref(false)
-const startPlaying = () => {
-  window.open('https:/MetaBlackjack.com', '_blank');
-}
 
 </script>
 <template>
@@ -72,17 +69,6 @@ const startPlaying = () => {
         </button>
   
   <Claimgbc :isOpen="showClaimPopup" @close="showClaimPopup = false" />
-
-
-        <button
-        class="flex items-center gap-2 bg-black border border-white/20 hover:bg-white/10 text-white font-semibold px-7 py-3 rounded-lg shadow transition text-base"
-  @click="startPlaying"
-          
-        >
-        
-          <Play class="w-5 h-5" />
-          Start Playing
-        </button>
       </div>
 
       <div
